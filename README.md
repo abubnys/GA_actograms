@@ -40,3 +40,25 @@ the program will now plot a 15-hour actogram in which the light and dark periods
 ![15 hour ND actogram](/readme_screenshots/act_ND.png)
 when visualized this way, this individual's behavioral transitions do not appear to follow an orderly pattern. However, if we instead view the 48-hour double actogram, a distinct circadian pattern emerges:
 ![double ND actogram](/readme_screenshots/dbl_act_ND.png)
+
+#### Calculating Photoperiod
+
+The script `actogram_regression.m` takes the same parsed behavioral data from `LD_data.mat`, plots a double actogram of it and draws a regression line across the behavioral onsets. The slope of this line corresponds to the animal's *tau*, the degree to which their circadian rhythm deviates from 24 hours. 
+
+Thus, if we load the data structure `LD_data.mat` in `actogram_regression.m` and set the following parameters:
+```
+fnom = 'LD_data.mat'
+cage = 1
+```
+The program plots the following actogram:
+![LD double actogram](/readme_screenshots/regression1.png)
+
+The red stars correspond to wake period onset times that have been algorithmically detected by `wake_times_function`. Since this is a double actogram and there are two parallel rows of stars which correspond to the same transitions, the program asks the user to select the x-range over which to consider the behavioral transitions for the regression line:
+```
+range for this transition: [5 9]
+```
+Then, it marks the transition points that are considered for the regression calculation in green and draws the regression line through them:
+![LD regression](/readme_screenshots/regression2.png)
+![LD regression result](/readme_screenshots/regression_result.png)
+
+This animal has a circadian photoperiod that is very close to 24 hours, so its *tau* is close to 0. The intercept is 6.5, so the animal's behavioral onset occured around 6:30AM on the first day of the experiment.

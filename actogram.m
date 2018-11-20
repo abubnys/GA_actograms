@@ -36,7 +36,7 @@ load([fpath fnom])
 cage = 1;
 
 % actogram for circadian timing on Nickel-Dime schedule
-ND_yn = 0; % 1 if five-and-dime, 0 if not
+ND_yn = 1; % 1 if five-and-dime, 0 if not
 ND_start = 22; % if five-and-dime, time when lights first turned off
 LD_yn = 1; % 1 if LD, 0 if DD, 2 if LL
 LD_on_off = [7 19]; % if LD, time when lights turn off and then on

@@ -32,7 +32,7 @@ The behavior of this individual still has distinct periods of low and high activ
 
 The file `ND_data.m` contains data from an experiment in which 3 mice housed in individual cages were subjected to a "five-and-dime" schedule of 5 hours of light following by 10 hours of darkness. The first dark period onset was at 10PM, so we set the following experimental variables in `actogram.m` before running the script:
 ```
-ND_yn = 0
+ND_yn = 1
 ND_start = 22
 cage = 2
 ```
@@ -43,7 +43,7 @@ when visualized this way, this individual's behavioral transitions do not appear
 
 #### Calculating Photoperiod
 
-The script `actogram_regression.m` takes the same parsed behavioral data from `LD_data.mat`, plots a double actogram of it and draws a regression line across the behavioral onsets. The slope of this line corresponds to the animal's *tau*, the degree to which their circadian rhythm deviates from 24 hours. 
+The script `actogram_regression.m` takes the same parsed behavioral data, plots a double actogram of it and draws a regression line across the behavioral onsets. The slope of this line corresponds to the animal's *tau*, the degree to which their circadian rhythm deviates from 24 hours. 
 
 Thus, if we load the data structure `LD_data.mat` in `actogram_regression.m` and set the following parameters:
 ```
@@ -61,4 +61,4 @@ Then, it marks the transition points that are considered for the regression calc
 ![LD regression](/readme_screenshots/regression2.png)
 ![LD regression result](/readme_screenshots/regression_result.png)
 
-This animal has a circadian photoperiod that is very close to 24 hours, so its *tau* is close to 0. The intercept is 6.5, so the animal's behavioral onset occured around 6:30AM on the first day of the experiment.
+This animal has a circadian photoperiod that is very close to 24 hours, so its *tau* is close to 0. The animal's behavioral onset occured around 6:30AM on the first day of the experiment, so the intercept is 6.5.
